@@ -1,0 +1,30 @@
+###############################################################################
+# adapted from https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
+- name: Configure for blinka install.
+  script: files/raspi_blinka_install_setup.sh
+
+- name: Install and upgrade pip3 RPi.GPIO package
+  become: yes
+  pip:
+    name: RPi.GPIO==0.7.0
+    executable: pip3
+
+- name: Install and upgrade pip3 adafruit-blinka package
+  become: yes
+  pip:
+    name: adafruit-blinka==6.20.1
+    executable: pip3
+
+- name: Install and upgrade pip3 adafruit-circuitpython-matrixkeypad package
+  become: yes
+  pip:
+    name: adafruit-circuitpython-matrixkeypad
+    executable: pip3
+
+################################################################################
+- name: Install pip3 requests package
+  become: yes
+  pip:
+    name: requests==2.27.1
+    executable: pip3
+

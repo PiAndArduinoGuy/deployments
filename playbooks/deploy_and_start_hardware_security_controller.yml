@@ -1,0 +1,21 @@
+---
+- name: Deploys hardware security controller, creates a service file to manage it and starts the service.
+  hosts: hardware-security-controller
+  vars:
+    service_name: hardware-security-controller
+    service_template_name: python_service.j2
+    python_artifact_name: hardware_security_controller
+    python_args:
+      logging_file_location: "{{application_directory}}/{{service_name}}/logs/{{service_name}}.log"
+      security_micro_service_host_ip: 192.168.3.158
+      security_micro_service_host_port: 8082
+
+
+  roles:
+    - ../roles/update_and_upgrade_raspberrypi
+    - ../roles/install_python3
+    - ../roles/install_hardware_security_controller_requirements
+    - ../roles/create_directories
+    - ../roles/deploy_python_artifacts
+    - ../roles/create_service_file
+    - ../roles/enable_and_start_service

@@ -1,0 +1,4 @@
+- name: Copy the python artifact to the host
+  copy:
+    src: "{{python_artifacts_directory}}/{{python_artifact_name}}"
+    dest: "{{application_directory}}/{{service_name}}"

@@ -1,0 +1,10 @@
+[Unit]
+Description= Starts the {{jar_artifact_name}} jar.
+
+[Service]
+ExecStart= java {% for java_arg, java_arg_value in java_args.items() %} -D{{java_arg}}={{java_arg_value}} {% endfor %} -jar "{{application_directory}}/{{service_name}}/{{jar_artifact_name}}"
+StandardOutput=append:{{application_directory}}/{{service_name}}/logs/{{service_name}}.log
+StandardError=append:{{application_directory}}/{{service_name}}/logs/{{service_name}}.log
+
+[Install]
+WantedBy=multi-user.target

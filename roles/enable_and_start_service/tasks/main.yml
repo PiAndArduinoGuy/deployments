@@ -1,0 +1,16 @@
+- name: Register service with systemd
+  become: yes
+  systemd:
+    enabled: yes
+    name: "{{application_directory}}/{{service_name}}/{{service_name}}.service"
+
+- name: "Reload systemd daemon."
+  become: yes
+  systemd:
+    daemon-reload: yes
+
+- name: Start the service
+  become: yes
+  systemd:
+    state: started
+    name: "{{service_name}}"

@@ -1,0 +1,11 @@
+[Unit]
+Description=Start the {{service_name}} docker container.
+
+[Service]
+Type=oneshot
+ExecStart=sudo docker start {{service_name}}
+ExecStop=sudo docker stop {{service_name}}
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

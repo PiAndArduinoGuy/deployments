@@ -1,0 +1,23 @@
+- name: Install pip3 pika package
+  become: yes
+  pip:
+    name: pika==1.2.0
+    executable: pip3
+
+- name: Install pip3 requests package
+  become: yes
+  pip:
+    name: requests==2.27.1
+    executable: pip3
+
+- name: Install pip3 gpiozero packages
+  become: yes
+  pip:
+    name: gpiozero==1.6.2
+    executable: pip3
+
+- name: Install pip3 picamera package
+  become: yes
+  pip:
+    name: picamera==1.13
+    executable: pip3

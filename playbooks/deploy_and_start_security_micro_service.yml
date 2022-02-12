@@ -1,0 +1,20 @@
+---
+- name: Deploys security micro-service jar, creates a service file to manage the jar and starts the service.
+  hosts: security_micro_service
+  vars:
+    jar_artifact_name: security-micro-service-1.0-SNAPSHOT.jar
+    service_name: security-micro-service
+    service_template_name: jar_service.j2
+    java_args:
+      spring.rabbitmq.host: "192.168.3.123"
+      resources.base.location: "{{application_directory}}/{{service_name}}/"
+      yolo.person-detector.base.location: "/usr/local/applications/security-micro-service/yolo" # temp fix to get everything working, a new MS needs to be created, remove this
+  roles:
+    - ../roles/update_and_upgrade_raspberrypi
+    - ../roles/create_directories
+    - ../roles/install_security_micro_service_requirements
+    - ../roles/deploy_jar_artifacts
+    - ../roles/create_service_file
+    - ../roles/enable_and_start_service
+
+

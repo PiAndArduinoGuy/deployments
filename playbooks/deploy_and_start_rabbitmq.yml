@@ -1,0 +1,22 @@
+---
+- name: Install docker and run a rabbitmq container.
+  hosts: rabbitmq
+  vars:
+    service_template_name: docker_service.j2
+    service_name: rabbitmq # corresponds to docker container name
+  pre_tasks:
+    - name: Get all host installed packages to check whether docker is installed
+      package_facts:
+        strategy: all
+    - name: Check whether rabbitmq docker container exists
+      become: yes
+      shell: docker ps -a -f "name=rabbitmq" --format '{{ '{{' }} .Names {{ '}}' }}'
+      register: rabbitmqContainers
+  roles:
+    - ../roles/update_and_upgrade_raspberrypi
+    - ../roles/create_directories
+    - {role: ../roles/install_docker, when: "'docker-ce-cli' not in ansible_facts.packages"} # Docs mentions that trying to install docker from the script if it has already been installed may cause issues.
+    - {role: ../roles/create_rabbitmq_docker_container, when: "'rabbitmq' not in rabbitmqContainers.stdout"}
+    - ../roles/create_service_file # future update, check how to log container logs to log file
+    - ../roles/enable_and_start_service
+

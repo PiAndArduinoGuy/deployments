@@ -1,0 +1,2 @@
+- namme: Install opencv from source (this may take several hours)
+  script: files/opencv_install_script.sh

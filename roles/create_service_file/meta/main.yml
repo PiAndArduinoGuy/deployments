@@ -1,0 +1,2 @@
+galaxy_info:
+  description: Requires that the service_template_name and service_name variables be defined. It created a service file from the requested service_template_name template

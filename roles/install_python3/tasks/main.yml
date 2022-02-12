@@ -1,0 +1,4 @@
+- name: Install python3 latest version.
+  become: yes
+  apt:
+    name: python3

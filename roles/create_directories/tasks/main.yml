@@ -1,0 +1,20 @@
+- name: Create the applications directory
+  become: yes
+  file:
+    state: directory
+    path: "{{application_directory}}"
+    mode: "777"
+
+- name: Create service directory
+  become: yes
+  file:
+    state: directory
+    path: "{{application_directory}}/{{service_name}}"
+    mode: "777"
+
+- name: Create the logs directory
+  become: yes
+  file:
+    state: directory
+    path: "{{application_directory}}/{{service_name}}/logs"
+    mode: "777"

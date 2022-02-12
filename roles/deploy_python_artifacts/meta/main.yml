@@ -1,0 +1,2 @@
+galaxy_info:
+  description: Requires that the service_name and python_artifact_name variables to be defined. Copies the python artifact specified to the subject host.

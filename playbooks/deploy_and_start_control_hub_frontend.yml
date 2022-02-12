@@ -1,0 +1,13 @@
+---
+- name: Deploys control hub frontend, creates a service file to manage it and starts the service.
+  hosts: control_hub_frontend
+  vars:
+    tomcat_webapp_artifact_name: control-hub-frontend.tar.xz
+    service_template_name: tomcat_service.j2
+  roles:
+    - ../roles/update_and_upgrade_raspberrypi
+    - ../roles/create_directories
+    - ../roles/install_tomcat9_server
+    - ../roles/deploy_tomcat_server_artifact
+    - ../roles/create_service_file
+    - ../roles/enable_and_start_service

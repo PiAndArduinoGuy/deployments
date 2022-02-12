@@ -1,0 +1,31 @@
+- name: Include install_java8 role
+  include_role:
+    name: "../roles/install_java8"
+
+- name: "Get {{application_directory}}/opencv stats"
+  stat:
+    path: "{{application_directory}}/opencv"
+  register: opencv_directory
+
+- debug:
+    msg: "Directory {{application_directory}}/opencv already exists, will not perform opencv installation"
+  when: opencv_directory.stat.exists
+
+- name: Install opencv
+  include_role:
+    name: "../roles/install_opencv"
+  when: not opencv_directory.stat.exists
+
+- name: Create security-config file
+  copy:
+    src: "{{other_artifacts_directory}}/security_config.json"
+    dest: "{{application_directory}}/{{service_name}}/security_config.json"
+- name: Unzip yolo artifact onto host
+  unarchive:
+    src: "../artifacts/other/yolo.zip"
+    dest: "{{application_directory}}/{{service_name}}"
+
+
+
+
+

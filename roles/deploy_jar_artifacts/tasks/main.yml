@@ -1,0 +1,4 @@
+- name: Copy the jar artifact to the host
+  copy:
+    src: "{{jar_artifacts_directory}}/{{jar_artifact_name}}"
+    dest: "{{application_directory}}/{{service_name}}"

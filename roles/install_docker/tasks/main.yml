@@ -1,0 +1,10 @@
+- name: Install docker install script.
+  become: yes
+  copy:
+    src: get-docker.sh
+    dest: /tmp/
+    mode: "777"
+
+- name: Execute the docker get-docker.sh script
+  become: yes
+  shell: sh /tmp/get-docker.sh

@@ -1,0 +1,9 @@
+[Unit]
+Description=Start the specified python artifact that requires a main.py file to execute
+
+[Service]
+User={{ansible_user}}
+ExecStart=python3 {{application_directory}}/{{service_name}}/{{python_artifact_name}}/main.py {% for python_arg, python_arg_value in python_args.items() %} --{{python_arg}} {{python_arg_value}} {% endfor %}
+
+[Install]
+WantedBy=multi-user.target

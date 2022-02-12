@@ -1,0 +1,2 @@
+service_name: tomcat9-server
+tomcat_home_directory: "{{application_directory}}/{{service_name}}/apache-tomcat-9.0.55"

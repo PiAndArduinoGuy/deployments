@@ -1,0 +1,2 @@
+galaxy_info:
+  description: Requires that the application_directory variable be defined. It installs tomcat 9 server and registers the tomcat_home_directory and service_name variable

@@ -1,0 +1,14 @@
+- name: Create log file
+  become: yes
+  file:
+    path: "{{application_directory}}/{{service_name}}/logs/{{service_name}}.log"
+    mode: "777"
+    state: touch
+
+- name: Create service file
+  become: yes
+  template:
+    src: "{{service_template_name}}"
+    dest: "{{application_directory}}/{{service_name}}/{{service_name}}.service"
+    owner: root
+    mode: "777"

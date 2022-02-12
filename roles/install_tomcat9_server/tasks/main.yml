@@ -1,0 +1,7 @@
+- name: Dowload and extract tomcat 9 download
+  unarchive:
+    src: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.55/bin/apache-tomcat-9.0.55.tar.gz
+    dest: "{{application_directory}}/{{service_name}}"
+    remote_src: yes
+
+

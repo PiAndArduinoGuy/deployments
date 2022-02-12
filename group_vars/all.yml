@@ -1,0 +1,6 @@
+ansible_user: pi
+ansible_password: raspberry
+other_artifacts_directory: "../artifacts/other"
+jar_artifacts_directory: "../artifacts/jar"
+python_artifacts_directory: "../artifacts/python"
+ansible_python_interpreter: /usr/bin/python3 # use python 3 to execute jobs on hosts

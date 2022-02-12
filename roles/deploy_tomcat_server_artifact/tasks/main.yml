@@ -1,0 +1,6 @@
+- name: Copying specified dist folder to host's tomcat webapps directory
+  become: yes
+  unarchive:
+    src: "{{tomcat_webapp_artifacts_directory}}/{{tomcat_webapp_artifact_name}}"
+    dest: "{{tomcat_webapps_directory}}/"
+    mode: "777"

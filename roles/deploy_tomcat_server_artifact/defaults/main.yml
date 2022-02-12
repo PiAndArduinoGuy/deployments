@@ -1,0 +1,2 @@
+tomcat_webapps_directory: "{{application_directory}}/{{service_name}}/apache-tomcat-9.0.55/webapps"
+tomcat_webapp_artifacts_directory: "../artifacts/tomcat_webapp"

@@ -1,0 +1,22 @@
+---
+- name: Deploys alerter, creates a service file to manage it and starts the service.
+  hosts: alerter
+  vars:
+    tomcat_webapp_artifact_name: control-hub-frontend.tar.xz
+    service_name: alerter
+    service_template_name: python_service.j2
+    python_artifact_name: alerter
+    python_args:
+      logging_file_location: "{{application_directory}}/{{service_name}}/logs/{{service_name}}.log"
+      rabbitmq_host: 192.168.3.158
+      alerter_security_config_queue_name: alerter.security.config
+      exchange_name: fanout_exchange
+
+
+  roles:
+    - ../roles/update_and_upgrade_raspberrypi
+    - ../roles/install_python3
+    - ../roles/create_directories
+    - ../roles/deploy_python_artifacts
+    - ../roles/create_service_file
+    - ../roles/enable_and_start_service

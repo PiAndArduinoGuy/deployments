@@ -1,0 +1,2 @@
+galaxy_info:
+  description: Requires that the application_directory and jar_artifact_name variables be defined. Copies the jar artifact specified to the subject host.

@@ -1,0 +1,8 @@
+- name: Update the apt caches.
+  become: yes
+  apt:
+    update_cache: yes
+- name: Upgrade the host.
+  become: yes
+  apt:
+    upgrade: yes
