@@ -11,3 +11,4 @@
     - ../roles/deploy_tomcat_server_artifact
     - ../roles/create_service_file
     - ../roles/enable_and_start_service
+    - ../roles/assign_static_private_ip_address

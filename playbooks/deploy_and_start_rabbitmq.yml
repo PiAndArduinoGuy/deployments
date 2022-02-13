@@ -19,4 +19,5 @@
     - {role: ../roles/create_rabbitmq_docker_container, when: "'rabbitmq' not in rabbitmqContainers.stdout"}
     - ../roles/create_service_file # future update, check how to log container logs to log file
     - ../roles/enable_and_start_service
+    - ../roles/assign_static_private_ip_address
 

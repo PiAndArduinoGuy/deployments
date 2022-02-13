@@ -16,5 +16,6 @@
     - ../roles/deploy_jar_artifacts
     - ../roles/create_service_file
     - ../roles/enable_and_start_service
+    - ../roles/assign_static_private_ip_address
 
 
