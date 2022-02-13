@@ -7,7 +7,7 @@
     python_artifact_name: hardware_security_controller
     python_args:
       logging_file_location: "{{application_directory}}/{{service_name}}/logs/{{service_name}}.log"
-      security_micro_service_host_ip: 192.168.3.158
+      security_micro_service_host_ip:  "{{groups.security_micro_service[0]}}"
       security_micro_service_host_port: 8082
 
 

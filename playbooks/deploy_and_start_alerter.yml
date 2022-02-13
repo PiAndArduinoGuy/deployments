@@ -8,7 +8,7 @@
     python_artifact_name: alerter
     python_args:
       logging_file_location: "{{application_directory}}/{{service_name}}/logs/{{service_name}}.log"
-      rabbitmq_host: 192.168.3.158
+      rabbitmq_host: "{{groups.security_micro_service[0]}}"
       alerter_security_config_queue_name: alerter.security.config
       exchange_name: fanout_exchange
 
