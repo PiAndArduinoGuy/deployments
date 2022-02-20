@@ -13,6 +13,7 @@
       security_micro_service_context_path: /security
       security_micro_service_host_ip: "{{groups.security_micro_service[0]}}"
       security_micro_service_host_port: 8082
+      security_camera_microservice_capture_directory: "{{application_directory}}/{{service_name}}"
 
   roles:
     - ../roles/update_and_upgrade_raspberrypi
