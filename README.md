@@ -30,18 +30,20 @@ To execute the tasks Ansible needs to be installed, follow the guide for your op
 ](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems) (Windows is not supported). Once Ansible has been installed, disable host key checking by adding the value *host_key_checking = False* to your ansible.cfg file (for Ubuntu this file is located at */etc/ansible*), this allows a password only SSH connection with remote hosts. Next follow the set up instructions below to deploy the Control Hub onto your RaspberryPi.
 
 #### Install the Control Hub Frontend (Required)
-1. Clone this project and edit the *hosts.ini* file. Replace the IP address of the *[control_hub_frontend]* host with the IP address obtained in step 3 of _Installing Raspberry Pi OS_.
-2. If your Raspberry Pi is connected to your router via an ethernet cable then open the *deploy_and_start_control_hub_frontend.yml* file located in the *playbooks* directory and uncomment the line interface: ethernet.
-3. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_control_hub_frontend.yml -i ../hosts.ini*. This will run a number of Ansible tasks that:
-4. Visit the url *http://{your-ip-address-from-step-3}/control-hub-frontend* to interact with the Control Hub.
+1. Follow the steps to install the Raspberry Pi OS.
+2. Clone this project and edit the *hosts.ini* file. 
+3. Replace the IP address of the *[control_hub_frontend]* host with the IP address of your Raspberry Pi in the hosts.ini file.
+4. If your Raspberry Pi is connected to your router via an ethernet cable then open the *deploy_and_start_control_hub_frontend.yml* file located in the *playbooks* directory and uncomment the line **interface: ethernet.**
+5. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_control_hub_frontend.yml -i ../hosts.ini*. This will run a number of Ansible tasks that:
+6. Visit the url *http://{your-ip-address-from-step-3}/control-hub-frontend* to interact with the Control Hub.
 
 #### Install RabbitMQ Server (Required)
-1. Replace the IP address of the *[rabbitmq]* host with the IP address obtained in step 3 of _Installing Raspberry Pi OS_.
-2. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_rabbitmq.yml -i ../hosts.ini*. This will run a number of Ansible tasks that:
+1. Replace the IP address of the *[rabbitmq]* host with the IP address of your Raspberry Pi in the hosts.ini file.
+2. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_rabbitmq.yml -i ../hosts.ini*.
 
 #### Install the Security Micro Service (Required if implementing [this blog](here-is-link))
-1. Replace the IP address of the *[security_camera_microservice]* host with the IP address obtained in step 3 of _Installing Raspberry Pi OS_.
-2. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_security_micro_service.yml -i ../hosts.ini*. This will run a number of Ansible tasks that:
+1. Replace the IP address of the *[security_camera_microservice]* host with the IP address of your Raspberry Pi in the hosts.ini file.
+2. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_security_micro_service.yml -i ../hosts.ini*. 
 
 ## IoT Devices
 ### System Requirements
@@ -49,16 +51,17 @@ All IoT devices require the minimum system requirements below:
 * Internet capabilities
 * An SD card at least 4 GB in size
 #### Installing Security Camera (Required if implementing [this blog](here-is-link))
-1. Follows the steps to install the Raspberry Pi OS.
+1. Follow the steps to install the Raspberry Pi OS.
 2. Replace the IP address of the *[security_camera_microservice]* host with the IP address of your Raspberry Pi in the hosts.ini file.
 3. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_security_camera_micro_service.yml -i ../hosts.ini*.
 4. If you have a 3D printer then you can print the enclosure designed for the security camera, the STL files are available in the directory artifacts/other/enclosures 
 
 #### Installing the Hardware Security Controller and Alerter (Required if implementing [this blog](here-is-link))
-1. Replace the IP address of the *[alerter]* and *[hardware-security-controller]* host with the IP address obtained in step 3 in the hosts.ini file. 
-2. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_hardware_security_controller.yml -i ../hosts.ini*. 
-3. Execute *ansible-playbook deploy_and_start_alerter.yml -i ../hosts.ini*.
-4. If you have a 3D printer then you can print the enclosure designed for the hardware controller and alerter, the STL files are available in the directory artifacts/other/enclosures
+1. Follow the steps to install the Raspberry Pi OS.
+2. Replace the IP address of the *[alerter]* and *[hardware-security-controller]* host with the IP address of your Raspberry Pi in the hosts.ini file. 
+3. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_hardware_security_controller.yml -i ../hosts.ini*. 
+4. Execute *ansible-playbook deploy_and_start_alerter.yml -i ../hosts.ini*.
+5. If you have a 3D printer then you can print the enclosure designed for the hardware controller and alerter, the STL files are available in the directory artifacts/other/enclosures
 
 # Contact Details
 For any queries please feel free to contact me:
