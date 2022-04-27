@@ -4,6 +4,7 @@
   vars:
     tomcat_webapp_artifact_name: control-hub-frontend.tar.xz
     service_template_name: tomcat_service.j2
+#    interface: ethernet
   roles:
     - ../roles/update_and_upgrade_raspberrypi
     - ../roles/create_directories
