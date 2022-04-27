@@ -30,6 +30,7 @@ To execute the tasks Ansible needs to be installed, follow the guide for your op
 ](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-specific-operating-systems) (Windows is not supported). Once Ansible has been installed, disable host key checking by adding the value *host_key_checking = False* to your ansible.cfg file (for Ubuntu this file is located at */etc/ansible*), this allows a password only SSH connection with remote hosts. Next follow the set up instructions below to deploy the Control Hub onto your RaspberryPi.
 
 #### Install the Control Hub Frontend (Required)
+The code that gets deployed as a service exists in the repository [control-hub-frontend](https://github.com/PiAndArduinoGuy/control-hub-frontend)
 1. Follow the steps to install the Raspberry Pi OS.
 2. Clone this project and edit the *hosts.ini* file. 
 3. Replace the IP address of the *[control_hub_frontend]* host with the IP address of your Raspberry Pi in the hosts.ini file.
@@ -42,6 +43,7 @@ To execute the tasks Ansible needs to be installed, follow the guide for your op
 2. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_rabbitmq.yml -i ../hosts.ini*.
 
 #### Install the Security Micro Service (Required if implementing [this blog](here-is-link))
+The code that gets deployed as a service exists in the repository [security-micro-service](https://github.com/PiAndArduinoGuy/security-micro-service)
 1. Replace the IP address of the *[security_camera_microservice]* host with the IP address of your Raspberry Pi in the hosts.ini file.
 2. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_security_micro_service.yml -i ../hosts.ini*. 
 
@@ -51,12 +53,14 @@ All IoT devices require the minimum system requirements below:
 * Internet capabilities
 * An SD card at least 4 GB in size
 #### Installing Security Camera (Required if implementing [this blog](here-is-link))
+The code that gets deployed as a service exists in the repository [security_camera_microservice](https://github.com/PiAndArduinoGuy/security_camera_microservice)
 1. Follow the steps to install the Raspberry Pi OS.
 2. Replace the IP address of the *[security_camera_microservice]* host with the IP address of your Raspberry Pi in the hosts.ini file.
 3. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_security_camera_micro_service.yml -i ../hosts.ini*.
 4. If you have a 3D printer then you can print the enclosure designed for the security camera, the STL files are available in the directory artifacts/other/enclosures 
 
 #### Installing the Hardware Security Controller and Alerter (Required if implementing [this blog](here-is-link))
+The code that gets deployed as services exist in the repositories [alerter](https://github.com/PiAndArduinoGuy/alerter) and [hardware_security_camera](https://github.com/PiAndArduinoGuy/hardware_security_controller)
 1. Follow the steps to install the Raspberry Pi OS.
 2. Replace the IP address of the *[alerter]* and *[hardware-security-controller]* host with the IP address of your Raspberry Pi in the hosts.ini file. 
 3. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_hardware_security_controller.yml -i ../hosts.ini*. 
