@@ -1,3 +1,5 @@
+# Disclaimer
+Artifacts that need to be deployed are not available in the artifacts directory as they are too large to be hosted by GitHub, please reach out to me if you want these artifacts
 # Raspberry Pi IoT
 The raspberry-pi-iot project consists of a central system called the *Control Hub* that orchestrates user interaction with a number of IoT devices on a private network.
 
