@@ -9,6 +9,7 @@
       logging_file_location: "{{application_directory}}/{{service_name}}/logs/{{service_name}}.log"
       security_micro_service_host_ip:  "{{groups.security_micro_service[0]}}"
       security_micro_service_host_port: 8082
+#      password: secrete-password-here-valid-values-12345679BC#
 
 
   roles:

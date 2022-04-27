@@ -63,9 +63,10 @@ The code that gets deployed as a service exists in the repository [security_came
 The code that gets deployed as services exist in the repositories [alerter](https://github.com/PiAndArduinoGuy/alerter) and [hardware_security_camera](https://github.com/PiAndArduinoGuy/hardware_security_controller)
 1. Follow the steps to install the Raspberry Pi OS.
 2. Replace the IP address of the *[alerter]* and *[hardware-security-controller]* host with the IP address of your Raspberry Pi in the hosts.ini file. 
-3. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_hardware_security_controller.yml -i ../hosts.ini*. 
-4. Execute *ansible-playbook deploy_and_start_alerter.yml -i ../hosts.ini*.
-5. If you have a 3D printer then you can print the enclosure designed for the hardware controller and alerter, the STL files are available in the directory artifacts/other/enclosures
+3. Uncomment the line **password: secrete-password-here-valid-values-12345679BC#** in the file deploy_and_start_hardware_security_controller.yml and replace the value with a password.
+4. Next open a terminal on your local machine and *cd* to this project, execute *ansible-playbook deploy_and_start_hardware_security_controller.yml -i ../hosts.ini*. 
+5. Execute *ansible-playbook deploy_and_start_alerter.yml -i ../hosts.ini*.
+6. If you have a 3D printer then you can print the enclosure designed for the hardware controller and alerter, the STL files are available in the directory artifacts/other/enclosures
 
 # Contact Details
 For any queries please feel free to contact me:
